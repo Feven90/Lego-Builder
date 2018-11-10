@@ -3,6 +3,7 @@ import './index.scss';
 import pageLoad from './components/LegoCharacter/legoCharacter';
 
 const initializeApp = () => {
-  pageLoad.onPageLoad();
+  pageLoad.onPageLoadHead();
+  pageLoad.onPageLoadTorso();
 };
 initializeApp();
