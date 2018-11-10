@@ -1,4 +1,8 @@
 import 'bootstrap';
 import './index.scss';
+import pageLoad from './components/LegoCharacter/legoCharacter';
 
-console.log('hello');
+const initializeApp = () => {
+  pageLoad.onPageLoad();
+};
+initializeApp();
