@@ -7,10 +7,18 @@
 </head>
 <body>
     Hello!!!
+    <div id="lego-name">
+        <div id="head-name"></div>
+        <div id="torso-name"></div>
+        <div id="leg-name"></div>
+    </div>
+
     <div id="head"></div>
     <div id="new-head"></div>
     <div id="torso"></div>
     <div id="new-torso"></div>
+    <div id="leg"></div>
+    <div id="new-leg"></div>
 
     <div class="input-group">
         <div class="input-group-prepend">
@@ -46,6 +54,21 @@
         </select>
         <button id="submit-torso">Submit</button>
       </div>
-      <div class="lego-name"></div>
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Options</label>
+        </div>
+        <select class="custom-select" id="lego-legs">
+          <option selected>Choose...</option>
+          <option value="leg1">ron</option>
+          <option value="leg2">ot</option>
+          <option value="leg3">troo</option>
+          <option value="leg4">rat</option>
+          <option value="leg5">ni</option>
+          <option value="leg6">erial</option>
+          <option value="leg7">ri</option>
+        </select>
+        <button id="submit-leg">Submit</button>
+      </div>
 </body>
 </html>

@@ -41,9 +41,32 @@ const loadClickedTorso = clickedTorso => new Promise((resolve, reject) => {
       reject(error);
     });
 });
+const loadLeg = () => new Promise((resolve, reject) => {
+  axios.get('http://localhost:3006/legs')
+    .then((data) => {
+      console.log(data.data[0]);
+      resolve(data.data[0]);
+    })
+    .catch((error) => {
+      reject(error);
+    });
+});
+const loadClickedLeg = clickedLeg => new Promise((resolve, reject) => {
+  axios.get('http://localhost:3006/legs')
+    .then((data) => {
+      const allLegs = data.data;
+      const filterClickedLegs = allLegs.filter(x => x.id === clickedLeg);
+      resolve(filterClickedLegs);
+    })
+    .catch((error) => {
+      reject(error);
+    });
+});
 export default {
   loadHead,
   loadClickedHead,
   loadTorso,
   loadClickedTorso,
+  loadLeg,
+  loadClickedLeg,
 };
