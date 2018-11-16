@@ -3,13 +3,52 @@ import 'bootstrap';
 import './legoCharacter.scss';
 import partsData from '../data/partsData';
 
+let getHeadUrl = '';
+let getTorsoUrl = '';
+let getLegUrl = '';
 const createDefaultLego = (part, divId, legoName) => {
-  const newString = `<div class= "lego">
+  const newString = `<div class="lego ${part.id}">
     <img class="lego-img" src="${part.imageUrl}">
     </div>`;
+  const value = `${part.id}`;
+  if (value.includes('head')) {
+    getHeadUrl = `${part.imageUrl}`;
+  }
+  if (value.includes('torso')) {
+    getTorsoUrl = `${part.imageUrl}`;
+  }
+  if (value.includes('leg')) {
+    getLegUrl = `${part.imageUrl}`;
+  }
   $(divId).html(newString);
   $(legoName).html(`${part.name}`);
 };
+
+const saveButtonStringBuilder = () => {
+  const domString = `<div>
+                    <img src="${getHeadUrl}" width="30px"><br/>
+                    <img src="${getTorsoUrl}" width="30px"><br/>
+                    <img src="${getLegUrl}" width="30px">
+                  </div>`;
+  $('#saveLego').html(domString);
+};
+const saveLegoButton = () => {
+  $('#save').click(() => {
+    const savedLegoArray = [];
+    const saveLegoCharacter = {
+      name: '',
+      headImage: '',
+      torsoImage: '',
+      legsImage: '',
+    };
+    saveLegoCharacter.headImage = getHeadUrl;
+    saveLegoCharacter.torsoImage = getTorsoUrl;
+    saveLegoCharacter.legsImage = getLegUrl;
+    savedLegoArray.push(saveLegoCharacter);
+  });
+  saveButtonStringBuilder();
+};
+saveLegoButton();
 // LEGO HEAD
 const chooseHead = (clickedHead) => {
   partsData.loadClickedHead(clickedHead).then((data) => {
