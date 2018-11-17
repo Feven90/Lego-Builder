@@ -1,6 +1,6 @@
 @import "~bootstrap/scss/bootstrap";
 
-.container {
+body {
     background-image: url('../../images/lego.png');
 }
 .lego-img {
@@ -11,6 +11,10 @@
     margin: 0 auto;
 }
 #lego-name {
+    display: flex;
+    flex-direction: row;
+}
+#lego-body {
     display: flex;
     flex-direction: row;
 }
