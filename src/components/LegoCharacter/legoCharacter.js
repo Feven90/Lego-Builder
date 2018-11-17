@@ -4,49 +4,59 @@ import './legoCharacter.scss';
 import partsData from '../data/partsData';
 
 let getHeadUrl = '';
+let getHeadName = '';
 let getTorsoUrl = '';
+let getTorsoName = '';
 let getLegUrl = '';
+let getLegName = '';
+const getSavedLegoName = getHeadName + getTorsoName + getLegName;
 const createDefaultLego = (part, divId, legoName) => {
-  const newString = `<div class="lego ${part.id}">
-    <img class="lego-img" src="${part.imageUrl}">
+  const newString = `<div class="justify-content-center">
+  <div class="lego ${part.id}">
+    <img class="lego-img rounded mx-auto d-block" src="${part.imageUrl}">
+    </div>
     </div>`;
   const value = `${part.id}`;
   if (value.includes('head')) {
     getHeadUrl = `${part.imageUrl}`;
+    getHeadName = `${part.name}`;
   }
   if (value.includes('torso')) {
     getTorsoUrl = `${part.imageUrl}`;
+    getTorsoName = `${part.name}`;
   }
   if (value.includes('leg')) {
     getLegUrl = `${part.imageUrl}`;
+    getLegName = `${part.name}`;
   }
   $(divId).html(newString);
-  $(legoName).html(`${part.name}`);
+  $(legoName).html(`<h2 class="text-center">${part.name}</h2>`);
 };
 
 const saveButtonStringBuilder = () => {
   const domString = `<div>
-                    <img src="${getHeadUrl}" width="30px"><br/>
-                    <img src="${getTorsoUrl}" width="30px"><br/>
-                    <img src="${getLegUrl}" width="30px">
-                  </div>`;
+    <h2>${getHeadName}${getTorsoName}${getLegName}</h2>
+        <img src="${getHeadUrl}" width="70px"><br/>
+        <img src="${getTorsoUrl}" width="70px"><br/>
+        <img src="${getLegUrl}" width="70px">
+      </div>`;
   $('#saveLego').html(domString);
 };
 const saveLegoButton = () => {
   $('#save').click(() => {
-    const savedLegoArray = [];
     const saveLegoCharacter = {
       name: '',
       headImage: '',
       torsoImage: '',
       legsImage: '',
     };
+    saveLegoCharacter.name = getSavedLegoName;
     saveLegoCharacter.headImage = getHeadUrl;
     saveLegoCharacter.torsoImage = getTorsoUrl;
     saveLegoCharacter.legsImage = getLegUrl;
-    savedLegoArray.push(saveLegoCharacter);
+    saveButtonStringBuilder();
+    console.log(saveLegoCharacter);
   });
-  saveButtonStringBuilder();
 };
 saveLegoButton();
 // LEGO HEAD
