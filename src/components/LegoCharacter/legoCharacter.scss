@@ -1,11 +1,16 @@
 @import "~bootstrap/scss/bootstrap";
 
+.container {
+    background-image: url('../../images/lego.png');
+}
 .lego-img {
+    justify-content: center;
     height: 200px;
     width: 200px;
     object-position: 0 0;
     margin: 0 auto;
 }
-.lego {
-    background-color: azure;
+#lego-name {
+    display: flex;
+    flex-direction: row;
 }
