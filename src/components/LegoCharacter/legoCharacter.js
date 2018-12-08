@@ -35,11 +35,11 @@ const createDefaultLego = (part, divId, legoName) => {
 
 const saveButtonStringBuilder = () => {
   const domString = `<div>
-    <h2>${getHeadName}${getTorsoName}${getLegName}</h2>
-        <img src="${getHeadUrl}" width="70px"><br/>
-        <img src="${getTorsoUrl}" width="70px"><br/>
-        <img src="${getLegUrl}" width="70px">
-      </div>`;
+        <h2>${getHeadName}${getTorsoName}${getLegName}</h2>
+            <img src="${getHeadUrl}" width="70px"><br/>
+            <img src="${getTorsoUrl}" width="70px"><br/>
+            <img src="${getLegUrl}" width="70px">
+          </div>`;
   $('#saveLego').html(domString);
 };
 const saveLegoButton = () => {
@@ -62,7 +62,6 @@ saveLegoButton();
 // LEGO HEAD
 const chooseHead = (clickedHead) => {
   partsData.loadClickedHead(clickedHead).then((data) => {
-    console.log(data[0]);
     $('#head').hide();
     createDefaultLego(data[0], '#new-head', '#head-name');
   }).catch((error) => {
@@ -77,7 +76,6 @@ const getClickedHeadValue = () => {
 };
 const onPageLoadHead = () => {
   partsData.loadHead().then((data) => {
-    console.log(data);
     createDefaultLego(data, '#head', '#head-name');
     getClickedHeadValue();
   }).catch((error) => {
@@ -88,7 +86,6 @@ const onPageLoadHead = () => {
 // LEGO TORSO
 const chooseTorso = (clickedTorso) => {
   partsData.loadClickedTorso(clickedTorso).then((data) => {
-    console.log(data[0]);
     $('#torso').hide();
     createDefaultLego(data[0], '#new-torso', '#torso-name');
   }).catch((error) => {
@@ -103,7 +100,6 @@ const getClickedTorsoValue = () => {
 };
 const onPageLoadTorso = () => {
   partsData.loadTorso().then((data) => {
-    console.log(data);
     createDefaultLego(data, '#torso', '#torso-name');
     getClickedTorsoValue();
   }).catch((error) => {
@@ -114,7 +110,6 @@ const onPageLoadTorso = () => {
 // LEGO LEG
 const chooseLeg = (clickedLeg) => {
   partsData.loadClickedLeg(clickedLeg).then((data) => {
-    console.log(data);
     $('#leg').hide();
     createDefaultLego(data[0], '#new-leg', '#leg-name');
   }).catch((error) => {
@@ -124,13 +119,11 @@ const chooseLeg = (clickedLeg) => {
 const getClickedLegValue = () => {
   $('#submit-leg').on('click', () => {
     const clickedLeg = $('#lego-legs').val();
-    console.log(clickedLeg);
     chooseLeg(clickedLeg);
   });
 };
 const onPageLoadLeg = () => {
   partsData.loadLeg().then((data) => {
-    console.log(data);
     createDefaultLego(data, '#leg', '#leg-name');
     getClickedLegValue();
   }).catch((error) => {

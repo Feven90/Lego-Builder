@@ -23,7 +23,6 @@ const loadClickedHead = clickedHead => new Promise((resolve, reject) => {
 const loadTorso = () => new Promise((resolve, reject) => {
   axios.get('http://localhost:3006/torsos')
     .then((data) => {
-      console.log(data.data[0]);
       resolve(data.data[0]);
     })
     .catch((error) => {
@@ -44,7 +43,6 @@ const loadClickedTorso = clickedTorso => new Promise((resolve, reject) => {
 const loadLeg = () => new Promise((resolve, reject) => {
   axios.get('http://localhost:3006/legs')
     .then((data) => {
-      console.log(data.data[0]);
       resolve(data.data[0]);
     })
     .catch((error) => {

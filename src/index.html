@@ -6,23 +6,15 @@
     <title>Lego Builder</title>
 </head>
 <body>
-    <h3>Choose parts of legos</h3>
+    <h3 class="justify-content-center">Choose your legos</h3>
     <div class="container align-text-center">
         <div id="lego-name">
             <div id="head-name"></div>
             <div id="torso-name"></div>
             <div id="leg-name"></div>
         </div>
-        <div id="lego-body">
-            <div>
-                <div id="head"></div>
-                <div id="new-head"></div>
-                <div id="torso"></div>
-                <div id="new-torso"></div>
-                <div id="leg"></div>
-                <div id="new-leg"></div>
-            </div>
-            <div>
+        <div id="lego-body" class="container">
+            <div id="choose-body">
                 <div class="input-group">
                     <label class="input-group-text" for="inputGroupSelect01">Options</label>
                     <select id="lego-heads">
@@ -68,8 +60,18 @@
                     <button id="submit-leg">Submit</button>
                 </div>
             </div>
-        </div>    
-            <button id="save">Save Lego</button>
-            <div id="saveLego"></div>
+            <div>
+                <div id="head"></div>
+                <div id="new-head"></div>
+                <div id="torso"></div>
+                <div id="new-torso"></div>
+                <div id="leg"></div>
+                <div id="new-leg"></div>
+            </div>
+            </div>
+            <div class="justify-content-center">
+                <button id="save" class="btn btn-success">Save Lego</button>
+                 <div id="saveLego"></div> 
+            </div>   
 </body>
 </html>

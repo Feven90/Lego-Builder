@@ -5,8 +5,8 @@ body {
 }
 .lego-img {
     justify-content: center;
-    height: 200px;
-    width: 200px;
+    height: 100px;
+    width: 100px;
     object-position: 0 0;
     margin: 0 auto;
 }
@@ -16,5 +16,16 @@ body {
 }
 #lego-body {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: center;
+    display:inline-block;
 }
+#choose-body {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+// #save {
+    // justify-content: center;
+//     width: 200px;
+// }
